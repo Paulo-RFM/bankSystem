@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+</head>
+<body>
+    <h1>Bem-vindo a pagina do cliente, {{ account_holder }}</h1>
+    
+    <label for="account_number">Número da Conta: </label>
+    <span id="account_number">{{ account_number }}</span><br>
+    
+    <label for="balance">Saldo: R$ </label>
+    <span id="balance">{{ balance }}</span><br><br>
+
+    <h2>Suas Chaves Pix</h2>
+    {% if pix_keys %}
+        <ul>
+            {% for key in pix_keys %}
+                <li>{{ key }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Você ainda não tem chaves Pix cadastradas.</p>
+    {% endif %}
+    
+    
+    <button id="createPixBtn">Cadastrar Nova Chave Pix</button>
+    <button id="PixBtn">Pix</button>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

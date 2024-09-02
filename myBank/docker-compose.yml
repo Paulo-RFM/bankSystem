@@ -28,3 +28,15 @@ services:
     depends_on:
       - zookeeper
 
+flask:
+    build: .
+    container_name: flask
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    depends_on:
+      - cassandra
+      - kafka
+    volumes:
+      - .:/app

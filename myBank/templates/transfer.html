@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferência Pix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+</head>
+<body>
+    <header>
+        <h1>Transferência Pix</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('main.transfer') }}" method="post">
+            <label for="chave_pix_destino">Chave Pix de Destino:</label><br>
+            <input type="text" id="chave_pix_destino" name="chave_pix_destino" required><br><br>
+            
+            <label for="valor">Valor:</label><br>
+            <input type="number" id="valor" name="valor" step="0.01" required><br><br>
+            
+            <button type="submit">Transferir</button>
+        </form>
+    </main>
+</body>
+</html>

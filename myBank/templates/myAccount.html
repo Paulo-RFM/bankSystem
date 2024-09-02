@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myBank - Minha Conta</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Minha Conta</h1>
+    </header>
+    <main>
+        <section id="accountDetails">
+            <h2>Detalhes da Conta</h2>
+            <p>Nome: <span id="accountName">Usuário</span></p>
+            <p>Saldo: <span id="accountBalance">R$ 0,00</span></p>
+        </section>
+        <section id="transactions">
+            <h2>Transações Recentes</h2>
+            <ul id="transactionList">
+                <li>Sem transações recentes</li>
+            </ul>
+        </section>
+        <button id="logoutBtn">Sair</button>
+    </main>
+    </body>
+</html>

@@ -13,8 +13,22 @@ class CassandraClient:
             CREATE TABLE IF NOT EXISTS accounts (
                 account_number TEXT PRIMARY KEY,
                 account_holder TEXT,
+                email TEXT,
+                cpf TEXT,
+                telefone TEXT,
+                account_password TEXT,
                 bank_id TEXT,
                 balance FLOAT,
+                created_at TIMESTAMP
+            )
+        """)
+
+        self.session.execute("""
+            CREATE TABLE IF NOT EXISTS keys_accounts (  
+                pixKey TEXT,
+                Key TEXT,
+                account_number TEXT PRIMARY KEY,
+                bank_id TEXT,
                 created_at TIMESTAMP
             )
         """)
@@ -25,3 +39,6 @@ class CassandraClient:
             return self.session.execute(query, parameters)
         return self.session.execute(query)
 
+    def close(self):
+        self.session.shutdown()
+        self.cluster.shutdown()

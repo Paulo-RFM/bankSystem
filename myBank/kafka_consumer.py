@@ -1,7 +1,7 @@
 from kafka import KafkaConsumer
 import json
 from config import KAFKA_BOOTSTRAP_SERVERS
-from models import CassandraClient
+from myBank.Account import CassandraClient
 
 class KafkaConsumerClient:
     def __init__(self):

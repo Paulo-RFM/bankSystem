@@ -1,0 +1,5 @@
+Flask
+flask-wtf
+flask-login
+cassandra-driver
+kafka-python
