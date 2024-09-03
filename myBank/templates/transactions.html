@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Extrato da Conta</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Extrato da Conta</h1>
+        <div class="table-container">
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Chave Pix Remetente</th>
+                        <th>Chave Pix Destino</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transacao in historico %}
+                    <tr>
+                        <td>{{ transacao.created_at }}</td>
+                        <td>{{ transacao.pixKey_remetente }}</td>
+                        <td>{{ transacao.pixKey_destino }}</td>
+                        <td>{{ transacao.valor }}</td>
+                        <td>{{ transacao.key }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
